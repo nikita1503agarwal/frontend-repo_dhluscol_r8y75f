@@ -25,7 +25,11 @@ export default function Features() {
 
   return (
     <section id="ai" className="relative py-28">
-      <div className="absolute inset-0 bg-[radial-gradient(60%_50%_at_20%_0%,rgba(59,130,246,0.14),transparent_60%),radial-gradient(60%_50%_at_80%_0%,rgba(168,85,247,0.12),transparent_60%)]" />
+      {/* watercolor backdrop */}
+      <div className="absolute inset-0" style={{
+        background:
+          'radial-gradient(700px 500px at 15% 10%, rgba(255, 214, 165, 0.35), transparent 60%), radial-gradient(700px 500px at 85% 0%, rgba(167, 216, 255, 0.35), transparent 60%)'
+      }} />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
           <motion.h2
@@ -33,11 +37,11 @@ export default function Features() {
             whileInView={{opacity:1,y:0}}
             viewport={{once:true}}
             transition={{duration:.6}}
-            className="text-3xl sm:text-5xl font-semibold text-white"
+            className="text-3xl sm:text-5xl font-semibold text-slate-900"
           >
-            AI automation built-in
+            Watercolor motion, AI built-in
           </motion.h2>
-          <p className="mt-4 text-white/70">From content to publishing, our AI assists every step so you can focus on your craft.</p>
+          <p className="mt-4 text-slate-700">Soft glows and gentle motion create an inviting, hand-painted feel.</p>
         </div>
 
         <motion.div
@@ -48,18 +52,18 @@ export default function Features() {
           className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {items.map(({ icon: Icon, title, desc }, i) => (
-            <motion.div key={title} variants={item} className="group relative rounded-2xl bg-white/5 border border-white/10 p-6 overflow-hidden">
+            <motion.div key={title} variants={item} className="group relative rounded-2xl bg-white/80 border border-slate-200 p-6 overflow-hidden shadow-sm">
               <motion.div
                 aria-hidden
-                className="absolute -top-12 -right-12 h-36 w-36 rounded-full bg-gradient-to-tr from-blue-500/30 to-violet-500/30 blur-2xl"
+                className="absolute -top-12 -right-12 h-36 w-36 rounded-full bg-pink-300/30 blur-2xl mix-blend-multiply"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 6, repeat: Infinity }}
               />
-              <div className="h-10 w-10 rounded-lg bg-gradient-to-tr from-blue-500 to-violet-500 text-white inline-flex items-center justify-center shadow-lg shadow-blue-500/30">
+              <div className="h-10 w-10 rounded-lg bg-gradient-to-tr from-pink-300 to-sky-300 text-slate-800 inline-flex items-center justify-center shadow">
                 <Icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-4 text-white font-medium text-lg">{title}</h3>
-              <p className="mt-2 text-white/70 text-sm">{desc}</p>
+              <h3 className="mt-4 text-slate-900 font-medium text-lg">{title}</h3>
+              <p className="mt-2 text-slate-700 text-sm">{desc}</p>
             </motion.div>
           ))}
         </motion.div>
