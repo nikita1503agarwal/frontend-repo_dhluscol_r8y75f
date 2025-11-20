@@ -23,28 +23,34 @@ const projects = [
 
 export default function Showcase() {
   return (
-    <section id="work" className="relative py-24">
+    <section id="work" className="relative py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl sm:text-5xl font-semibold text-white">Previous websites</h2>
-          <p className="mt-4 text-white/70">A selection of sites Ive crafted. Click to explore.</p>
+          <p className="mt-4 text-white/70">A selection of sites I've crafted. Click to explore.</p>
         </div>
 
-        <div className="mt-14 grid md:grid-cols-3 gap-6">
+        <div className="mt-16 grid md:grid-cols-3 gap-6">
           {projects.map((p, i) => (
             <motion.a
               key={p.title}
               href={p.url}
               target="_blank"
               rel="noreferrer"
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
+              transition={{ duration: 0.55, delay: i * 0.06 }}
               className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5"
             >
               <div className="aspect-[4/3] overflow-hidden">
-                <img src={p.image} alt={p.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                <motion.img
+                  src={p.image}
+                  alt={p.title}
+                  className="h-full w-full object-cover"
+                  whileHover={{ scale: 1.06 }}
+                  transition={{ duration: 0.6 }}
+                />
               </div>
               <div className="p-5">
                 <div className="flex items-center justify-between">
@@ -57,6 +63,12 @@ export default function Showcase() {
                   ))}
                 </div>
               </div>
+              <motion.div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+              />
             </motion.a>
           ))}
         </div>
